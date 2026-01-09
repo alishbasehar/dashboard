@@ -1,13 +1,17 @@
 
 import './App.css'
+import Sidebar from './components/Sidebar'
 
 function App() {
   
   return (
     <>
-<div className='grid h-[97%] w-[97%]'
+<div className='h-[100vh] flex justify-center items-center'
 
-></div>
+>
+<Sidebar/>
+
+</div>
     </>
   )
 }
