@@ -12,13 +12,10 @@
 }
 
 body {
- background: linear-gradient(
-    140deg,
-    #1e3c72 0%,
-    #72767d 100%
-  );
+  background-color: black;
   height: 100vh;
-  display:flex
+  display: flex;
 }
+
 
 
