@@ -2,6 +2,7 @@
 import './App.css'
 import Maindash from './components/Maindash'
 import Sidebar from './components/Sidebar'
+import Cards from './components/cards'
 
 function App() {
   
@@ -12,6 +13,7 @@ function App() {
 >
 <Sidebar/>
 <Maindash/>
+<Cards/>
 
 </div>
     </>
