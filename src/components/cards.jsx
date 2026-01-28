@@ -9,7 +9,7 @@ const cards = () => {
        <div className='w-full'>
         <Card
         title={Item.title}
-        color={Item.color}
+        color={Item.background}
         barvalue={Item.barvalue}
         value={Item.value}
         png={Item.png}

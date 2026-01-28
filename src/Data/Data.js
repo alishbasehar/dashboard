@@ -31,6 +31,7 @@ export const carddata = [
   {
     title: "Sales",
     background: "#BFA15D",
+   
     barvalue: 70,
     value: 2300,
     png: FaDollarSign,
@@ -43,7 +44,7 @@ export const carddata = [
   },
   {
     title: "Revenue",
-    background: "#1f2937", // gray-800
+    background:  "#374151", // gray-800
     barvalue: 80,
     value: 5400,
     png: BsCurrencyDollar,
@@ -56,7 +57,7 @@ export const carddata = [
   },
   {
     title: "Expense",
-    background: "#374151", // gray-700
+    background: "#BFA15D", // gray-700
     barvalue: 60,
     value: 1800,
     png: HiOutlineCurrencyDollar,
