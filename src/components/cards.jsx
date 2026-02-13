@@ -1,24 +1,23 @@
-import React from 'react'
-import { carddata } from '../Data/Data';
-import Card from './card';
+import React from "react";
+import { carddata } from "../Data/Data";
+import Card from "./Card";
 
-const cards = () => {
+const Cards = () => {
   return (
-    <div className='flex gap-10 p-20'>{carddata.map((Item,index)=>{
-       return(
-       <div className='w-full'>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+      {carddata.map((item, index) => (
         <Card
-        title={Item.title}
-        color={Item.background}
-        barvalue={Item.barvalue}
-        value={Item.value}
-        png={Item.png}
-        series={Item.series}
+          key={index}
+          title={item.title}
+          color={item.background}
+          barvalue={item.barvalue}
+          value={item.value}
+          png={item.png}
+          series={item.series}
         />
-         </div>
-       ) 
-    })}</div>
-  )
-}
+      ))}
+    </div>
+  );
+};
 
-export default cards
+export default Cards;

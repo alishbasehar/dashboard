@@ -30,41 +30,40 @@ export const sidebardata = [
 export const carddata = [
   {
     title: "Sales",
-    background: "#BFA15D",
-   
+    background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
     barvalue: 70,
     value: 2300,
     png: FaDollarSign,
     series: [
       {
-        name: "Revenue",
-        data: [10, 17, 20, 90],
+        name: "Sales",
+        data: [31, 40, 28, 51, 42, 109, 100],
       },
     ],
   },
   {
     title: "Revenue",
-    background:  "#374151", // gray-800
+    background: "linear-gradient(135deg, #10b981, #059669)",
     barvalue: 80,
     value: 5400,
     png: BsCurrencyDollar,
     series: [
       {
         name: "Revenue",
-        data: [20, 30, 40, 100],
+        data: [80, 100, 70, 90, 120, 150, 130],
       },
     ],
   },
   {
     title: "Expense",
-    background: "#BFA15D", // gray-700
+    background: "linear-gradient(135deg, #f43f5e, #e11d48)",
     barvalue: 60,
     value: 1800,
     png: HiOutlineCurrencyDollar,
     series: [
       {
         name: "Expense",
-        data: [15, 25, 35, 60],
+        data: [20, 30, 25, 35, 40, 50, 45],
       },
     ],
   },
