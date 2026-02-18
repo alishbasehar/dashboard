@@ -3,19 +3,25 @@ import { FaRegClipboard, FaRegUser, FaRegChartBar, FaDollarSign } from "react-ic
 import { GoPackage } from "react-icons/go";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import img1 from "../images/img1.png"
+import img2 from "../images/img2.png"
+import img3 from "../images/img3.png"
 
 export const sidebardata = [
   {
     icon: IoHomeOutline,
     heading: "Dashboard",
+    path:"/"
   },
   {
     icon: FaRegClipboard,
     heading: "Orders",
+    path:"/orders"
   },
   {
     icon: FaRegUser,
     heading: "Customer",
+    path:"/customer"
   },
   {
     icon: GoPackage,
@@ -68,3 +74,25 @@ export const carddata = [
     ],
   },
 ];
+export const  updatedata=[
+
+  {
+    img:img1,
+    name:"alishba",
+    nots:"has ordered iphone",
+    time :"25 min ago"
+  },
+   {
+    img:img2,
+    name:"ayesha",
+    nots:"has ordered iphone",
+    time :"25 min ago"
+  },
+   {
+    img:img3,
+    name:"minha",
+    nots:"has ordered iphone",
+    time :"25 min ago"
+  }
+]
+

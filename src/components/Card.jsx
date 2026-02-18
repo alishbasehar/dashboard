@@ -27,7 +27,7 @@ function CompactCard({ params, setExpand }) {
     <motion.div
       layout
       whileHover={{ scale: 1.03 }}
-      className="p-4 flex items-center justify-between w-full h-40 rounded-2xl cursor-pointer shadow-lg text-white"
+      className="p-4 flex items-center justify-between  w-full h-40 rounded-2xl cursor-pointer shadow-lg text-white"
       style={{ background: params.color }}
       onClick={setExpand}
     >
@@ -109,7 +109,7 @@ function ExpandedCard({ params, setExpand }) {
     <motion.div
       layout
       initial={{ borderRadius: 20 }}
-      className="p-6 w-[43rem]  h-80 rounded-2xl shadow-lg absolute z-10 left-[17rem] flex flex-col items-center justify-between  text-white"
+      className="p-6 w-[48rem]  h-120 rounded-2xl shadow-lg absolute z-10 left-[17rem] flex flex-col items-center justify-between  text-white"
       style={{ background: params.color }}
     >
       <div className="absolute top-4 right-4 cursor-pointer">
@@ -118,14 +118,15 @@ function ExpandedCard({ params, setExpand }) {
 
       <div className="flex items-center gap-3 mb-4">
         <Png size={30} />
-        <span className="text-xl font-semibold">{params.title}</span>
+        <span className="text-3xl font-bold text-white text-shadow-2xl">{params.title}</span>
       </div>
 
       <Chart
         series={params.series}
         type="area"
         options={data.options}
-        height={200}
+        height={300}
+        width={450}
       />
 
       <span className="text-sm opacity-80 mt-2 block">

@@ -1,16 +1,36 @@
+// pp.jsx
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Right from "./components/Right";
+import Orderpage from "./pages/orderspage";
+import Customers from "./pages/Customersfinal";
 
-
-
-import Dashboard from './pages/Dashboard'
-
-function App() {
-  
+function APP() {
   return (
-    <>
-
-<Dashboard/>
-    </>
-  )
+    <BrowserRouter>
+      <div className="">
+        
+        
+        {/* Main content */}
+        <div className="">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="flex flex-col md:flex-row">
+                  <Dashboard />
+                  <Right />
+                </div>
+              }
+            />
+            <Route path="/orders" element={<Orderpage />} />
+            <Route path="/customer" element={<Customers />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default APP;
