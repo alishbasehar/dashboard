@@ -26,6 +26,7 @@ export const sidebardata = [
   {
     icon: GoPackage,
     heading: "Products",
+    path:"/product"
   },
   {
     icon: FaRegChartBar,

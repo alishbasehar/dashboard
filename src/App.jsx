@@ -6,6 +6,8 @@ import Right from "./components/Right";
 import Orderpage from "./pages/orderspage";
 import Customers from "./pages/Customersfinal";
 
+import Productpagefinal from "./pages/Productpagefinal";
+
 function APP() {
   return (
     <BrowserRouter>
@@ -26,6 +28,8 @@ function APP() {
             />
             <Route path="/orders" element={<Orderpage />} />
             <Route path="/customer" element={<Customers />} />
+
+            <Route path="/product" element={<Productpagefinal />} />
           </Routes>
         </div>
       </div>
