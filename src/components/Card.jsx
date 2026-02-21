@@ -3,7 +3,7 @@ import { LayoutGroup, motion } from "framer-motion";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { UilTimes } from "@iconscout/react-unicons";
-import Chart from 'react-apexcharts'
+import Chart from "react-apexcharts";
 
 const Card = (props) => {
   const [expand, setExpand] = useState(false);
@@ -27,12 +27,18 @@ function CompactCard({ params, setExpand }) {
     <motion.div
       layout
       whileHover={{ scale: 1.03 }}
-      className="p-4 flex items-center justify-between  w-full h-40 rounded-2xl cursor-pointer shadow-lg text-white"
+      className="p-4 flex items-center justify-between 
+                 w-full max-w-full 
+                 h-40 
+                 rounded-2xl 
+                 cursor-pointer 
+                 shadow-lg 
+                 text-white"
       style={{ background: params.color }}
       onClick={setExpand}
     >
       {/* Progress Circle */}
-      <div className="w-24 h-24">
+      <div className="w-20 h-20 sm:w-24 sm:h-24">
         <CircularProgressbar
           value={value}
           text={`${value}%`}
@@ -47,8 +53,12 @@ function CompactCard({ params, setExpand }) {
       {/* Right Content */}
       <div className="flex flex-col items-end gap-2">
         <Png size={28} />
-        <span className="text-xl font-semibold">${params.value}</span>
-        <span className="text-sm opacity-80">Last 24 hours</span>
+        <span className="text-lg sm:text-xl font-semibold">
+          ${params.value}
+        </span>
+        <span className="text-xs sm:text-sm opacity-80">
+          Last 24 hours
+        </span>
       </div>
     </motion.div>
   );
@@ -57,84 +67,111 @@ function CompactCard({ params, setExpand }) {
 function ExpandedCard({ params, setExpand }) {
   const Png = params.png;
 
- const data = {
-  options: {
-    chart: {
-      type: "area",
-      height: "auto",
-      toolbar: { show: false },
-      zoom: { enabled: false },
-    },
-    stroke: {
-      curve: "smooth",
-      width: 3,
-      colors: ["#fff"], // line color white for visibility
-    },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        opacityFrom: 0.5, // thoda zyada visible
-        opacityTo: 0.2,
-        stops: [0, 80, 100],
-        colorStops: [
-          { offset: 0, color: "#fff", opacity: 0.5 },
-          { offset: 100, color: "#fff", opacity: 0.1 },
-        ],
+  const data = {
+    options: {
+      chart: {
+        type: "area",
+        toolbar: { show: false },
+        zoom: { enabled: false },
       },
+      stroke: {
+        curve: "smooth",
+        width: 3,
+        colors: ["#fff"],
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.5,
+          opacityTo: 0.1,
+          stops: [0, 100],
+        },
+      },
+      markers: {
+        size: 4,
+        colors: ["#fff"],
+        strokeColors: "#000",
+        strokeWidth: 2,
+      },
+      xaxis: {
+        categories: [
+          "12AM",
+          "4AM",
+          "8AM",
+          "12PM",
+          "4PM",
+          "8PM",
+          "11PM",
+        ],
+        labels: { style: { colors: "#fff" } },
+      },
+      yaxis: {
+        labels: { style: { colors: "#fff" } },
+      },
+      grid: {
+        borderColor: "rgba(255,255,255,0.2)",
+      },
+      tooltip: { theme: "dark" },
     },
-    markers: {
-      size: 4,
-      colors: ["#fff"],
-      strokeColors: "#000",
-      strokeWidth: 2,
-    },
-    xaxis: {
-      categories: ["12AM", "4AM", "8AM", "12PM", "4PM", "8PM", "11PM"],
-      labels: { style: { colors: "#fff" } },
-      axisBorder: { show: true, color: "#fff" },
-      axisTicks: { show: true, color: "#fff" },
-    },
-    yaxis: {
-      labels: { style: { colors: "#fff" } },
-    },
-    grid: {
-      borderColor: "rgba(255,255,255,0.2)",
-    },
-    tooltip: { theme: "dark" },
-  },
-};
+  };
 
   return (
     <motion.div
       layout
-      initial={{ borderRadius: 20 }}
-      className="p-6 w-[48rem]  h-120 rounded-2xl shadow-lg absolute z-10 left-[17rem] flex flex-col items-center justify-between  text-white"
-      style={{ background: params.color }}
+      className="fixed inset-0 z-50 
+                 flex items-center justify-center 
+                 p-4"
     >
-      <div className="absolute top-4 right-4 cursor-pointer">
-        <UilTimes onClick={setExpand} />
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        onClick={setExpand}
+      ></div>
+
+      {/* Card */}
+      <div
+        className="relative w-full max-w-3xl 
+                   min-h-[400px] 
+                   rounded-2xl 
+                   shadow-lg 
+                   flex flex-col 
+                   items-center 
+                   justify-between 
+                   p-4 sm:p-6 
+                   text-white"
+        style={{ background: params.color }}
+      >
+        {/* Close Button */}
+        <div className="absolute top-4 right-4 cursor-pointer">
+          <UilTimes onClick={setExpand} />
+        </div>
+
+        {/* Title */}
+        <div className="flex items-center gap-3 mb-4">
+          <Png size={30} />
+          <span className="text-xl sm:text-3xl font-bold">
+            {params.title}
+          </span>
+        </div>
+
+        {/* Chart */}
+        <div className="w-full">
+          <Chart
+            series={params.series}
+            type="area"
+            options={data.options}
+            height={300}
+            width="100%"
+          />
+        </div>
+
+        <span className="text-sm opacity-80 mt-2">
+          Last 24 Hours
+        </span>
       </div>
-
-      <div className="flex items-center gap-3 mb-4">
-        <Png size={30} />
-        <span className="text-3xl font-bold text-white text-shadow-2xl">{params.title}</span>
-      </div>
-
-      <Chart
-        series={params.series}
-        type="area"
-        options={data.options}
-        height={300}
-        width={450}
-      />
-
-      <span className="text-sm opacity-80 mt-2 block">
-        Last 24 Hours
-      </span>
     </motion.div>
   );
 }
-
 
 export default Card;

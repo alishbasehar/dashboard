@@ -17,7 +17,7 @@ const Analysis = () => {
 </div>
 
       {/* Table row - full width */}
-      <div className=' mr-40 w-full'>
+      <div className='w-full'>
         <CustomerOrdersTable />
       </div>
     </div>

@@ -19,20 +19,19 @@ const TableSection = () => {
   ];
 
   return (
-    <div className="bg-gray-800 mb-8  container max-w-7xl mx-auto ml-10 md:ml-0 p-4 sm:p-6 md:p-8 rounded-xl shadow-md">
+    <div className="bg-gray-800 mb-8 w-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 rounded-xl shadow-md overflow-x-hidden">
       <h3 className="text-white mb-4 font-semibold text-lg sm:text-xl md:text-2xl">
         Recent Orders
       </h3>
 
-      {/* Scrollable wrapper for small screens */}
-      <div className="overflow-x-auto">
-        <table className="min-w-full text-left">
+      <div className="w-full overflow-x-auto">
+        <table className="w-full text-left table-auto">
           <thead>
             <tr className="text-gray-400 border-b border-gray-700">
               <th className="py-2 px-2 sm:px-4">Product</th>
-              <th className="px-2 sm:px-4">Qty</th>
-              <th className="px-2 sm:px-4">Sales</th>
-              <th className="px-2 sm:px-4">Profit</th>
+              <th className="px-2 sm:px-4 whitespace-nowrap">Qty</th>
+              <th className="px-2 sm:px-4 whitespace-nowrap">Sales</th>
+              <th className="px-2 sm:px-4 whitespace-nowrap">Profit</th>
             </tr>
           </thead>
           <tbody>
@@ -41,10 +40,18 @@ const TableSection = () => {
                 key={item.id}
                 className="border-b border-gray-700 text-white text-sm sm:text-base"
               >
-                <td className="py-3 px-2 sm:px-4">{item.product}</td>
-                <td className="px-2 sm:px-4">{item.quantity}</td>
-                <td className="px-2 sm:px-4">{item.sales}</td>
-                <td className="px-2 sm:px-4 text-green-400">{item.profit}</td>
+                <td className="py-3 px-2 sm:px-4 break-words">
+                  {item.product}
+                </td>
+                <td className="px-2 sm:px-4">
+                  {item.quantity}
+                </td>
+                <td className="px-2 sm:px-4">
+                  {item.sales}
+                </td>
+                <td className="px-2 sm:px-4 text-green-400">
+                  {item.profit}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -53,5 +60,4 @@ const TableSection = () => {
     </div>
   );
 };
-
 export default TableSection;
