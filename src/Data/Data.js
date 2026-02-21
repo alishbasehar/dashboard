@@ -31,6 +31,7 @@ export const sidebardata = [
   {
     icon: FaRegChartBar,
     heading: "Analytics",
+     path:"/analysic"
   },
 ];
 

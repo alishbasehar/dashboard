@@ -7,6 +7,7 @@ import Orderpage from "./pages/orderspage";
 import Customers from "./pages/Customersfinal";
 
 import Productpagefinal from "./pages/Productpagefinal";
+import Analysicfinal  from "./pages/Analysicfinal.jsx";
 
 function APP() {
   return (
@@ -29,7 +30,9 @@ function APP() {
             <Route path="/orders" element={<Orderpage />} />
             <Route path="/customer" element={<Customers />} />
 
+            
             <Route path="/product" element={<Productpagefinal />} />
+               <Route path="/analysic" element={<Analysicfinal />} />
           </Routes>
         </div>
       </div>
