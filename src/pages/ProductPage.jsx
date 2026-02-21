@@ -21,7 +21,7 @@ export default function ProductPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6 bg-gray-900 min-h-screen space-y-8">
-      <h2 className="text-3xl ml-10 md:ml-0 font-bold text-white">Products Dashboard</h2>
+      <h2 className="text-3xl pl-15 sm:px-20 md:px-8  font-bold text-white">Products Dashboard</h2>
 
       <ProductSummary />
       <ProductFilter onAdd={addProduct} />
